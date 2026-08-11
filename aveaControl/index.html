@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="avea.js" defer></script>
+  <script src="wbt.js" defer></script>
+
+  <link rel="stylesheet" href="avea.css" />
+  <title>Elgato Avea Controls</title>
+</head>
+
+<body>
+  <div class="app">
+
+    <header class="card header">
+      <h1>Elgato Avea</h1>
+      <p class="subtitle">Replacement for the original App</p>
+
+      <button id="connectbutton" class="btn primary" onclick="findLamp()">
+        Connect
+      </button>
+
+      <div id="connectionStatus" class="status disconnected">
+        Disconnected
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Brightness</h2>
+
+      <div class="slider-wrapper">
+        <input id="brightnesSlider" type="range" min="1" max="100" value="100"
+          oninput="updateBrightnessLabel(this.value)">
+        <div class="slider-value">
+          <span id="brightnessValue">100</span>%
+        </div>
+      </div>
+
+      <button class="btn secondary" onclick="setBrightnessFromSlider()">
+        Apply
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>Color</h2>
+
+      <div class="color-row">
+        <input type="color" id="staticColor" value="#00ffff">
+        <button id="setStaticColor" class="btn accent" onclick="setStaticColor()">
+          Apply
+        </button>
+        <button class="btn danger" onclick="setOff()">
+          Off
+        </button>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
